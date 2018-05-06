@@ -1,6 +1,6 @@
 module Algebra.Dioid where
 
-reacord Dioid A (_≡_ : A -> A -> Set) : Set where
+record Dioid A (_≡_ : A -> A -> Set) : Set where
   field
     zero : A
     one  : A
