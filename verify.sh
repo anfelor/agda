@@ -1,10 +1,9 @@
 #!/bin/bash
+set -Eeuo pipefail
 rm -rf index.agda;
 echo "module index where" >> index.agda;
 for i in $( find src -name "*.agda" | sed 's/src\/\(.*\)\.agda/\1/' | sed 's/\//\./g' | sort ); do
     echo "import $i" >> index.agda;
 done;
 agda -i . -i src/ index.agda;
-RET=$?;
 rm -rf index.agda;
-exit $RET;
